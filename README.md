@@ -185,7 +185,7 @@ The Model has the parallel processing so that multiple GPUs are used:
 if torch.cuda.device_count() > 1:
       model = nn.DataParallel(model)
 
-#### Mixed Precision:
+### Mixed Precision:
 
 Have used mixed precision:
 
