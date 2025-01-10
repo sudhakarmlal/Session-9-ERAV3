@@ -9,9 +9,13 @@ The same can be found at:
 
 https://github.com/sudhakarmlal/Session-9-ERAV3/blob/main/resnet50_imagenet1k.py
 
+
+
 def conv1x1(in_planes: int, out_planes: int, stride: int = 1) -> nn.Conv2d:
     """1x1 convolution"""
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
+
+
 
 from functools import partial
 from typing import Any, Callable, List, Optional, Type, Union
