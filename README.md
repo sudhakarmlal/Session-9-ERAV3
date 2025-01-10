@@ -5,6 +5,9 @@
 ##### Developing Custom Resnet 50 Model 
 
 
+The same can be found at:
+https://github.com/sudhakarmlal/Session-9-ERAV3/blob/main/resnet50_imagenet1k.py
+
 
 
 
