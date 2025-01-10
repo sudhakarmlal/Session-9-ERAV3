@@ -180,3 +180,20 @@ warmup_scheduler = LambdaLR(optimizer, lr_lambda=warmup_lr)
 ###### Initialize the cosine annealing scheduler for the remaining epochs
 cosine_scheduler = CosineAnnealingLR(optimizer, T_max=num_epochs - 10, eta_min=1e-6)
 
+### Parallel Processing:
+The Model has the parallel processing so that multiple GPUs are used:
+if torch.cuda.device_count() > 1:
+      model = nn.DataParallel(model)
+
+#### Mixed Precision:
+
+Have used mixed precision:
+
+  with torch.no_grad():
+        for X, y in dataloader:
+            X, y = X.to(device), y.to(device)
+            with autocast():  # Use mixed precision for inference
+                pred = model(X)
+                test_loss += loss_fn(pred, y).item()
+                correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+  
